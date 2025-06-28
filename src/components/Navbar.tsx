@@ -56,7 +56,7 @@ const Navbar = () => {
                 >
                   <div className="w-10 h-10 flex items-center justify-center group-hover:rotate-45 transition-all duration-500">
                     <img 
-                      src="../Gear.png" 
+                      src="/Gear.png" 
                       alt="Eblon Dynamics" 
                       className="w-full h-full object-contain opacity-90 group-hover:opacity-100"
                     />

@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import gearImg from '/Gear.png'
 
 interface GearLoaderProps {
   size?: number
@@ -23,7 +24,7 @@ const GearLoader: React.FC<GearLoaderProps> = ({
       }}
     >
       <img 
-        src="/Gear.png" 
+        src={gearImg} 
         alt="Loading..." 
         width={size} 
         height={size}
