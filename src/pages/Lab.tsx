@@ -53,27 +53,27 @@ const Lab = () => {
       <section className="page-section">
         <div className="container-padding">
           <div className="container-max">
-            <motion.div
+          <motion.div
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-4xl"
-            >
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl"
+          >
               <div className="label-text mb-8">TESTING & VALIDATION</div>
               <h1 className="hero-title mb-12">
                 Precision testing for
                 <br />
                 uncompromising quality
-              </h1>
+            </h1>
               <p className="body-large max-w-3xl mb-8">
                 Our state-of-the-art testing laboratory ensures every component meets the highest standards of quality, performance, and reliability through rigorous validation processes.
-              </p>
+            </p>
               <button className="btn-primary">
                 Lab Capabilities
                 <ArrowRight className="ml-2" size={16} />
               </button>
             </motion.div>
-          </div>
+            </div>
         </div>
       </section>
 
@@ -83,11 +83,11 @@ const Lab = () => {
           <div className="container-max">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
-                <motion.div
+          <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   className="text-center space-y-3"
                 >
@@ -111,22 +111,22 @@ const Lab = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
-            >
+            className="text-center mb-16"
+          >
               <div className="label-text mb-4">TESTING CAPABILITIES</div>
               <h2 className="section-title mb-6">Advanced laboratory services</h2>
               <p className="body-large max-w-3xl mx-auto">
                 Our comprehensive testing facility provides complete validation services from materials analysis to performance verification.
-              </p>
-            </motion.div>
+            </p>
+          </motion.div>
 
             <div className="space-y-20">
               {labCapabilities.map((capability, index) => (
-                <motion.div
+              <motion.div
                   key={capability.id}
                   initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${
                     index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
@@ -152,7 +152,7 @@ const Lab = () => {
                           </div>
                         ))}
                       </div>
-                    </div>
+                </div>
                     
                     <button className="btn-secondary group">
                       Learn More
@@ -165,10 +165,10 @@ const Lab = () => {
                       <div className="w-32 h-32 bg-neutral-700 rounded-2xl flex items-center justify-center">
                         <capability.icon size={64} className="text-neutral-400" />
                       </div>
-                    </div>
                   </div>
-                </motion.div>
-              ))}
+                </div>
+              </motion.div>
+            ))}
             </div>
           </div>
         </div>
@@ -178,26 +178,26 @@ const Lab = () => {
       <section className="page-section bg-neutral-950">
         <div className="container-padding">
           <div className="container-max">
-            <motion.div
+          <motion.div
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
               <div className="label-text mb-4">CERTIFICATIONS</div>
               <h2 className="section-title mb-6">Quality standards</h2>
               <p className="body-large max-w-3xl mx-auto">
                 Our laboratory maintains the highest international standards through rigorous certification and continuous improvement processes.
-              </p>
-            </motion.div>
+            </p>
+          </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {certifications.map((cert, index) => (
-                <motion.div
-                  key={index}
+          <motion.div
+                key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   className="glass-card p-8 text-center card-hover"
                 >
@@ -205,7 +205,7 @@ const Lab = () => {
                   <h3 className="text-xl font-medium text-white mb-4">{cert.name}</h3>
                   <p className="body-text text-sm">{cert.description}</p>
                 </motion.div>
-              ))}
+            ))}
             </div>
           </div>
         </div>
@@ -216,10 +216,10 @@ const Lab = () => {
         <div className="container-padding">
           <div className="container-max">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <motion.div
+          <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+            viewport={{ once: true }}
                 className="space-y-8"
               >
                 <div className="label-text">TESTING PROCESS</div>
@@ -248,7 +248,7 @@ const Lab = () => {
                   Request Testing
                   <ArrowRight className="ml-2" size={16} />
                 </button>
-              </motion.div>
+          </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
@@ -273,20 +273,20 @@ const Lab = () => {
       <section className="page-section bg-neutral-950">
         <div className="container-padding">
           <div className="container-max">
-            <motion.div
+          <motion.div
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
               className="text-center max-w-3xl mx-auto space-y-8"
-            >
+          >
               <h2 className="section-title">
                 Need comprehensive
                 <br />
                 testing services?
-              </h2>
+            </h2>
               <p className="body-large">
                 Contact our testing specialists to discuss your quality validation requirements and ensure your components meet the highest standards.
-              </p>
+            </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="btn-primary">
                   Schedule Testing
@@ -295,9 +295,9 @@ const Lab = () => {
                 <button className="btn-secondary">
                   Lab Tour
                 </button>
-              </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
+        </div>
         </div>
       </section>
     </div>

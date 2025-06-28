@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Globe, Shield, Wrench, Award, TrendingUp, Users } from 'lucide-react';
@@ -89,6 +89,10 @@ const Home = () => {
     }
   ];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-black">
       {/* Hero Section */}
@@ -100,7 +104,6 @@ const Home = () => {
           <div className="absolute inset-0 bg-black/60 z-10" />
           <div className="w-full h-full bg-gradient-to-br from-neutral-900 via-black to-neutral-800" />
         </motion.div>
-
         <div className="relative z-20 container-padding w-full">
           <div className="container-max">
             <div className="max-w-4xl">
@@ -110,8 +113,6 @@ const Home = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="space-y-8"
               >
-                <div className="label-text">SCROLL TO DISCOVER</div>
-                
                 <motion.h1 
                   className="hero-title"
                   initial={{ opacity: 0, y: 50 }}
@@ -122,7 +123,6 @@ const Home = () => {
                   <br />
                   your machinery challenges
                 </motion.h1>
-                
                 <motion.p
                   className="body-large max-w-3xl"
                   initial={{ opacity: 0, y: 30 }}
@@ -134,7 +134,6 @@ const Home = () => {
                   enhancing your protections, our expertise will help you overcome
                   every challenge.
                 </motion.p>
-
                 <motion.div
                   className="flex flex-col sm:flex-row gap-4"
                   initial={{ opacity: 0, y: 30 }}
@@ -157,14 +156,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 text-neutral-500"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <div className="w-px h-16 bg-gradient-to-b from-neutral-500 to-transparent" />
-        </motion.div>
       </section>
 
       {/* Solutions Grid */}
@@ -220,7 +211,6 @@ const Home = () => {
                 viewport={{ once: true }}
                 className="space-y-8"
               >
-                <div className="label-text">SCROLL TO DISCOVER</div>
                 <h2 className="section-title">
                   Your machinery
                   <br />
