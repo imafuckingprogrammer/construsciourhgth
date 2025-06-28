@@ -13,7 +13,6 @@ import Quality from './pages/Quality'
 import Innovation from './pages/Innovation'
 import News from './pages/News'
 import Contact from './pages/Contact'
-import './App.css'
 
 function AnimatedRoutes() {
   const location = useLocation()
