@@ -22,27 +22,27 @@ const Footer = () => {
               <div>
                 <div className="text-neutral-400 font-semibold mb-4 tracking-wider text-xs">SITEMAP</div>
                 <ul className="space-y-3">
-                  <li><Link to="/" className="footer-link">Home</Link></li>
-                  <li><Link to="/about" className="footer-link">About</Link></li>
-                  <li><Link to="/team" className="footer-link">Team</Link></li>
-                  <li><Link to="/products" className="footer-link">Products</Link></li>
-                  <li><Link to="/industries" className="footer-link">Industries</Link></li>
-                  <li><Link to="/innovation" className="footer-link">Innovation</Link></li>
-                  <li><Link to="/news" className="footer-link">News</Link></li>
-                  <li><Link to="/contact" className="footer-link">Contact</Link></li>
+                  <li><Link to="/" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">Home</Link></li>
+                  <li><Link to="/about" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">About</Link></li>
+                  <li><Link to="/products" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">Products</Link></li>
+                  <li><Link to="/industries" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">Industries</Link></li>
+                  <li><Link to="/quality" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">Quality</Link></li>
+                  <li><Link to="/innovation" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">Innovation</Link></li>
+                  <li><Link to="/news" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">News</Link></li>
+                  <li><Link to="/contact" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">Contact</Link></li>
                 </ul>
               </div>
               <div>
                 <div className="text-neutral-400 font-semibold mb-4 tracking-wider text-xs">LEGAL</div>
                 <ul className="space-y-3">
-                  <li><Link to="/privacy" className="footer-link">Privacy Policy</Link></li>
-                  <li><Link to="/terms" className="footer-link">Terms of Service</Link></li>
+                  <li><Link to="/privacy" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">Privacy Policy</Link></li>
+                  <li><Link to="/terms" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">Terms of Service</Link></li>
                 </ul>
               </div>
               <div className="hidden md:block">
                 <div className="text-neutral-400 font-semibold mb-4 tracking-wider text-xs">PORTAL</div>
                 <ul className="space-y-3">
-                  <li><Link to="/login" className="footer-link">User Login</Link></li>
+                  <li><Link to="/login" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">User Login</Link></li>
                 </ul>
               </div>
             </div>
@@ -52,8 +52,8 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 text-xs text-neutral-600">
             <div>© {currentYear} Eblon Dynamics. All rights reserved.</div>
             <div className="flex gap-6">
-              <Link to="/privacy" className="footer-link">Privacy</Link>
-              <Link to="/terms" className="footer-link">Terms</Link>
+              <Link to="/privacy" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200">Privacy</Link>
+              <Link to="/terms" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200">Terms</Link>
             </div>
           </div>
         </div>

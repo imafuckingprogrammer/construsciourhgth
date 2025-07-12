@@ -186,10 +186,10 @@ const Home = () => {
                   transition={{ delay: index * 0.1 }}
                   className="glass-card p-8 card-hover group"
                 >
-                  <div className="text-neutral-500 text-sm font-mono mb-4">/ {solution.id}</div>
+                  <div className="text-purple-400 text-sm font-mono mb-4">/ {solution.id}</div>
                   <h3 className="text-white text-xl font-medium mb-4">{solution.title}</h3>
                   <p className="body-text mb-6">{solution.description}</p>
-                  <div className="flex items-center text-neutral-400 group-hover:text-white transition-colors">
+                  <div className="flex items-center text-neutral-400 group-hover:text-purple-300 transition-colors">
                     <span className="text-sm font-medium">Learn more</span>
                     <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -231,9 +231,9 @@ const Home = () => {
                 viewport={{ once: true }}
                 className="relative"
               >
-                <div className="w-full h-96 bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-2xl flex items-center justify-center">
-                  <div className="w-32 h-32 bg-neutral-700 rounded-2xl flex items-center justify-center">
-                    <Wrench size={64} className="text-neutral-400" />
+                <div className="w-full h-96 bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-2xl flex items-center justify-center group hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500">
+                  <div className="w-32 h-32 bg-neutral-700 rounded-2xl flex items-center justify-center group-hover:bg-purple-900/20 transition-colors duration-500">
+                    <Wrench size={64} className="text-neutral-400 group-hover:text-purple-400 transition-colors duration-500" />
                   </div>
                 </div>
               </motion.div>
@@ -256,12 +256,12 @@ const Home = () => {
                   transition={{ delay: index * 0.1 }}
                   className="text-center space-y-3"
                 >
-                  <div className="w-12 h-12 mx-auto bg-neutral-800 rounded-xl flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 mx-auto bg-neutral-800 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-900/20 transition-colors duration-300">
                     <stat.icon size={24} className="text-neutral-400" />
                   </div>
                   <div className="text-4xl md:text-5xl font-light text-white">
                     {stat.number}
-                    <span className="text-neutral-400">{stat.symbol}</span>
+                    <span className="text-purple-400">{stat.symbol}</span>
                   </div>
                   <p className="body-text text-sm">{stat.label}</p>
                 </motion.div>
@@ -337,8 +337,8 @@ const Home = () => {
                   transition={{ delay: index * 0.2 }}
                   className="space-y-6"
                 >
-                  <div className="w-16 h-16 bg-neutral-800 rounded-2xl flex items-center justify-center">
-                    <item.icon size={32} className="text-neutral-400" />
+                  <div className="w-16 h-16 bg-neutral-800 rounded-2xl flex items-center justify-center hover:bg-purple-900/20 transition-colors duration-300">
+                    <item.icon size={32} className="text-neutral-400 hover:text-purple-400 transition-colors duration-300" />
                   </div>
                   <h3 className="text-2xl font-medium text-white">{item.title}</h3>
                   <p className="body-large">{item.description}</p>

@@ -47,6 +47,7 @@ const Navbar = () => {
         <div className="container-padding">
           <div className="container-max">
             <div className="flex items-center justify-between h-20">
+              
               {/* Logo */}
               <Link to="/" className="group">
                 <motion.div
@@ -61,7 +62,7 @@ const Navbar = () => {
                       className="w-full h-full object-contain opacity-90 group-hover:opacity-100"
                     />
                   </div>
-                  <div className="text-white font-medium tracking-wide group-hover:text-gear-purple-300 transition-colors duration-300 font-space">
+                  <div className="text-white font-medium tracking-wide group-hover:text-purple-300 transition-colors duration-300 font-space">
                     EBLON DYNAMICS
                   </div>
                 </motion.div>
@@ -73,7 +74,7 @@ const Navbar = () => {
                   <Link
                     key={item.name}
                     to={item.path}
-                    className={`nav-link hover:text-gear-purple-300 ${location.pathname === item.path ? 'active text-gear-purple-400' : ''}`}
+                    className={`nav-link hover:text-purple-300 ${location.pathname === item.path ? 'active text-purple-400' : ''}`}
                   >
                     <motion.span
                       whileHover={{ y: -1 }}
@@ -136,8 +137,8 @@ const Navbar = () => {
                           to={item.path}
                           className={`flex items-center justify-between py-4 border-b border-neutral-800/50 group ${
                             location.pathname === item.path 
-                              ? 'text-gear-purple-400' 
-                              : 'text-neutral-400 hover:text-gear-purple-300'
+                              ? 'text-purple-400' 
+                              : 'text-neutral-400 hover:text-purple-300'
                           }`}
                         >
                           <span className="text-lg font-medium">{item.name}</span>
