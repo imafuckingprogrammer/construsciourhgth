@@ -9,9 +9,12 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-16">
             {/* Left: Logo & Info */}
             <div className="flex-1 min-w-[220px]">
-              <div className="font-bold text-2xl tracking-widest mb-4 text-white">EBLON DYNAMICS</div>
+              <div className="flex items-center mb-4">
+                <img src="/Gear.png" alt="Eblon Dynamics Logo" className="w-10 h-10 mr-3" />
+                <div className="font-bold text-2xl tracking-widest text-white">EBLON DYNAMICS</div>
+              </div>
               <div className="text-neutral-400 text-base mb-8 max-w-xs leading-relaxed">
-                Leading Syrian manufacturer of precision heavy machinery parts, committed to world-class quality and engineering excellence since 2005.
+                Leading Lebanese/Syrian distributor of precision heavy machinery parts, committed to delivering world-class quality from top manufacturers since 2005.
               </div>
               <div className="text-neutral-500 text-sm mb-2">C. Damascus, Syria</div>
               <div className="text-neutral-500 text-sm mb-2">info@eblondynamics.com</div>
@@ -26,8 +29,6 @@ const Footer = () => {
                   <li><Link to="/about" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">About</Link></li>
                   <li><Link to="/products" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">Products</Link></li>
                   <li><Link to="/industries" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">Industries</Link></li>
-                  <li><Link to="/quality" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">Quality</Link></li>
-                  <li><Link to="/innovation" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">Innovation</Link></li>
                   <li><Link to="/news" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">News</Link></li>
                   <li><Link to="/contact" className="text-neutral-300 hover:text-purple-300 transition-colors duration-200 text-sm">Contact</Link></li>
                 </ul>

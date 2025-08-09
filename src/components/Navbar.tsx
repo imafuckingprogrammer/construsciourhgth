@@ -26,8 +26,6 @@ const Navbar = () => {
     { name: 'ABOUT', path: '/about' },
     { name: 'PRODUCTS', path: '/products' },
     { name: 'INDUSTRIES', path: '/industries' },
-    { name: 'QUALITY', path: '/quality' },
-    { name: 'INNOVATION', path: '/innovation' },
     { name: 'NEWS', path: '/news' },
     { name: 'CONTACT', path: '/contact' },
   ];
@@ -51,15 +49,17 @@ const Navbar = () => {
               {/* Logo */}
               <Link to="/" className="group">
                 <motion.div
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                   className="flex items-center space-x-3"
                 >
-                  <div className="w-10 h-10 flex items-center justify-center group-hover:rotate-45 transition-all duration-500">
-                    <img 
+                  <div className="w-10 h-10 flex items-center justify-center">
+                    <motion.img 
                       src="/Gear.png" 
                       alt="Eblon Dynamics" 
                       className="w-full h-full object-contain opacity-90 group-hover:opacity-100"
+                      whileHover={{ rotate: 45 }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                     />
                   </div>
                   <div className="text-white font-medium tracking-wide group-hover:text-purple-300 transition-colors duration-300 font-space">

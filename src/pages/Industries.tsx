@@ -1,58 +1,55 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Building, Factory, Truck, Zap } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import { slideUp, scaleIn, viewportOptions } from '../utils/animations'
 
 const Industries = () => {
   const industries = [
     {
       id: 'IND_001',
-      icon: Building,
       title: "Construction",
-      description: "Heavy-duty components for excavators, bulldozers, and construction equipment operating in demanding environments worldwide.",
-      applications: ["Excavator parts", "Bulldozer components", "Crane systems", "Foundation equipment"],
-      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop"
+      description: "Durable components for excavators, bulldozers, cranes, and other construction equipment operating in rugged environments.",
+      applications: ["Excavator & bulldozer parts", "Foundation equipment", "Crane systems", "Site machinery"],
+      image: "/indu-Construction.jpg"
     },
     {
       id: 'IND_002', 
-      icon: Factory,
       title: "Mining",
-      description: "Robust machinery parts designed to withstand extreme conditions in mining operations, ensuring maximum uptime and safety.",
-      applications: ["Dump truck parts", "Conveyor systems", "Drilling equipment", "Processing machinery"],
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop"
+      description: "Robust and reliable parts designed for the extreme demands of mining and quarry operations.",
+      applications: ["Dump truck parts", "Conveyor systems", "Drilling & processing equipment", "Heavy haulers"],
+      image: "/Indu-Mining.jpg"
     },
     {
       id: 'IND_003',
-      icon: Zap,
       title: "Energy",
-      description: "Precision components for power generation, oil & gas, and renewable energy infrastructure supporting global energy needs.",
-      applications: ["Generator parts", "Turbine components", "Pipeline equipment", "Solar mounting systems"],
-      image: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&h=400&fit=crop"
+      description: "Precision components for power generation, oil & gas, and renewable energy sectors—ensuring uninterrupted operation and high efficiency.",
+      applications: ["Generator & turbine components", "Pipeline equipment", "Solar system mounting hardware", "Power transmission"],
+      image: "/indu-Energy.jpg"
     },
     {
       id: 'IND_004',
-      icon: Truck,
       title: "Transportation",
-      description: "High-performance parts for commercial vehicles, logistics equipment, and transportation infrastructure systems.",
-      applications: ["Truck components", "Trailer parts", "Loading systems", "Fleet maintenance"],
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop"
+      description: "High-performance parts for logistics fleets, commercial vehicles, and infrastructure related systems.",
+      applications: ["Truck & trailer components", "Loading systems", "Fleet maintenance solutions", "Transport infrastructure"],
+      image: "/indu-Transportation.jpg"
     }
   ]
 
   const capabilities = [
     {
       title: "Industry Expertise",
-      description: "Deep understanding of sector-specific requirements and operating conditions"
+      description: "We understand your sector's challenges and source only from trusted global manufacturers to meet your operational needs."
     },
     {
       title: "Custom Solutions",
-      description: "Tailored components designed for unique industry applications and challenges"
+      description: "Special requests? We'll locate, source, or match parts tailored to your unique industrial use cases."
     },
     {
       title: "Global Support",
-      description: "Worldwide service network ensuring consistent support across all markets"
+      description: "Our distribution and logistics network ensures consistent availability and support—no matter where you operate."
     },
     {
       title: "Quality Assurance",
-      description: "Rigorous testing protocols specific to each industry's demanding standards"
+      description: "Every component undergoes quality review and certification verification, aligned with industry-specific standards."
     }
   ]
 
@@ -70,19 +67,19 @@ const Industries = () => {
         <div className="container-padding">
           <div className="container-max">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={slideUp.initial}
+              animate={slideUp.animate}
+              transition={slideUp.transition}
               className="max-w-4xl"
             >
               <div className="label-text mb-8">INDUSTRIES WE SERVE</div>
               <h1 className="hero-title mb-12">
-                Powering critical
+                Powering Critical Infrastructure
                 <br />
-                infrastructure worldwide
+                with Trusted Parts
               </h1>
               <p className="body-large max-w-3xl mb-8">
-                From construction sites to mining operations, our precision-engineered components support the world's most demanding industrial applications across multiple sectors.
+                From construction sites to mining operations, Eblon Dynamics provides high-quality, precision parts sourced from world-leading brands—supporting the most demanding industrial applications across multiple sectors.
               </p>
               <button className="btn-primary">
                 Explore Solutions
@@ -101,10 +98,10 @@ const Industries = () => {
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  initial={slideUp.initial}
+                  whileInView={slideUp.animate}
+                  viewport={viewportOptions}
+                  transition={{ ...slideUp.transition, delay: index * 0.1 }}
                   className="text-center space-y-3"
                 >
                   <div className="text-4xl md:text-5xl font-light text-white">
@@ -124,15 +121,16 @@ const Industries = () => {
         <div className="container-padding">
           <div className="container-max">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial={slideUp.initial}
+              whileInView={slideUp.animate}
+              viewport={viewportOptions}
+              transition={slideUp.transition}
               className="text-center mb-16"
             >
               <div className="label-text mb-4">SECTOR EXPERTISE</div>
-              <h2 className="section-title mb-6">Industries we serve</h2>
+              <h2 className="section-title mb-6">Specialized solutions tailored to the specific demands of each sector.</h2>
               <p className="body-large max-w-3xl mx-auto">
-                Specialized solutions tailored to the unique demands and operating conditions of each industry sector.
+                Our vast inventory and expert sourcing help you minimize downtime and maximize performance.
               </p>
             </motion.div>
 
@@ -140,19 +138,16 @@ const Industries = () => {
               {industries.map((industry, index) => (
                 <motion.div
                   key={industry.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  initial={scaleIn.initial}
+                  whileInView={scaleIn.animate}
+                  viewport={viewportOptions}
+                  transition={{ ...scaleIn.transition, delay: index * 0.1 }}
                   className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${
                     index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
                   }`}
                 >
                   <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
                     <div className="flex items-center space-x-4 mb-6">
-                      <div className="w-12 h-12 bg-neutral-800 rounded-xl flex items-center justify-center">
-                        <industry.icon size={24} className="text-neutral-400" />
-                      </div>
                       <div className="text-sm font-mono text-neutral-500">/ {industry.id}</div>
                     </div>
                     <h3 className="text-2xl md:text-3xl font-light text-white mb-6">{industry.title}</h3>
@@ -194,13 +189,14 @@ const Industries = () => {
         <div className="container-padding">
           <div className="container-max">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial={slideUp.initial}
+              whileInView={slideUp.animate}
+              viewport={viewportOptions}
+              transition={slideUp.transition}
               className="text-center mb-16"
             >
               <div className="label-text mb-4">OUR CAPABILITIES</div>
-              <h2 className="section-title mb-6">Industry-focused approach</h2>
+              <h2 className="section-title mb-6">An Industry-Focused Distribution Approach</h2>
               <p className="body-large max-w-3xl mx-auto">
                 Our specialized expertise ensures that every component meets the specific requirements and challenges of your industry.
               </p>
@@ -210,10 +206,10 @@ const Industries = () => {
               {capabilities.map((capability, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  initial={scaleIn.initial}
+                  whileInView={scaleIn.animate}
+                  viewport={viewportOptions}
+                  transition={{ ...scaleIn.transition, delay: index * 0.1 }}
                   className="glass-card p-8 card-hover"
                 >
                   <div className="text-sm font-mono text-neutral-500 mb-4">/ {String(index + 1).padStart(2, '0')}</div>
@@ -231,18 +227,19 @@ const Industries = () => {
         <div className="container-padding">
           <div className="container-max">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial={slideUp.initial}
+              whileInView={slideUp.animate}
+              viewport={viewportOptions}
+              transition={slideUp.transition}
               className="text-center max-w-3xl mx-auto space-y-8"
             >
               <h2 className="section-title">
-                Ready to power your
+                Let's Power Your
                 <br />
-                industry forward?
+                Industry Forward
               </h2>
               <p className="body-large">
-                Contact our industry specialists to discuss your specific requirements and discover tailored solutions for your sector.
+                Our specialists are ready to help you select the right parts, optimize your supply chain, and ensure business continuity.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="btn-primary">

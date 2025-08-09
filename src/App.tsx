@@ -9,13 +9,16 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Products from './pages/Products'
 import Industries from './pages/Industries'
-import Quality from './pages/Quality'
-import Innovation from './pages/Innovation'
 import News from './pages/News'
 import Contact from './pages/Contact'
+import ComingSoon from './pages/ComingSoon'
 
 function AnimatedRoutes() {
   const location = useLocation()
+  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
   
   return (
     <AnimatePresence mode="wait">
@@ -53,22 +56,6 @@ function AnimatedRoutes() {
           } 
         />
         <Route 
-          path="/quality" 
-          element={
-            <PageTransition>
-              <Quality />
-            </PageTransition>
-          } 
-        />
-        <Route 
-          path="/innovation" 
-          element={
-            <PageTransition>
-              <Innovation />
-            </PageTransition>
-          } 
-        />
-        <Route 
           path="/news" 
           element={
             <PageTransition>
@@ -81,6 +68,38 @@ function AnimatedRoutes() {
           element={
             <PageTransition>
               <Contact />
+            </PageTransition>
+          } 
+        />
+        <Route 
+          path="/coming-soon" 
+          element={
+            <PageTransition>
+              <ComingSoon />
+            </PageTransition>
+          } 
+        />
+        <Route 
+          path="/privacy" 
+          element={
+            <PageTransition>
+              <ComingSoon />
+            </PageTransition>
+          } 
+        />
+        <Route 
+          path="/terms" 
+          element={
+            <PageTransition>
+              <ComingSoon />
+            </PageTransition>
+          } 
+        />
+        <Route 
+          path="/login" 
+          element={
+            <PageTransition>
+              <ComingSoon />
             </PageTransition>
           } 
         />

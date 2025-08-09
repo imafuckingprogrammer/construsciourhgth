@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Clock } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { slideUp, slideLeft, slideRight, scaleIn, viewportOptions } from '../utils/animations'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,37 +12,6 @@ const Contact = () => {
     message: ''
   })
 
-  const contactInfo = [
-    {
-      title: "General Inquiries",
-      email: "info@eblondynamics.com",
-      phone: "+963 12 345 6789",
-      icon: Mail,
-      color: "gear-purple-500"
-    },
-    {
-      title: "Sales & Quotations",
-      email: "sales@eblondynamics.com", 
-      phone: "+963 12 345 6790",
-      icon: Phone,
-      color: "gear-purple-400"
-    },
-    {
-      title: "Technical Support",
-      email: "support@eblondynamics.com",
-      phone: "+963 12 345 6791", 
-      icon: MapPin,
-      color: "gear-purple-600"
-    },
-    {
-      title: "Emergency Hotline",
-      email: "emergency@eblondynamics.com",
-      phone: "+963 12 345 6799",
-      icon: Clock,
-      color: "gear-purple-300"
-    }
-  ]
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({
@@ -50,9 +20,35 @@ const Contact = () => {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
+    
+    try {
+      const response = await fetch('https://formspree.io/f/mgvzvkjd', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      
+      if (response.ok) {
+        alert('Thank you for your message! We will get back to you soon.')
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          phone: '',
+          subject: '',
+          message: ''
+        })
+      } else {
+        throw new Error('Form submission failed')
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      alert('There was an error submitting your message. Please try again or contact us directly at info@eblondynamics.com')
+    }
   }
 
   return (
@@ -61,38 +57,18 @@ const Contact = () => {
       <section className="py-32 border-b border-dotted border-neutral-800">
         <div className="container-padding">
           <div className="container-max">
-            <div className="max-w-4xl">
+            <motion.div
+              initial={slideUp.initial}
+              animate={slideUp.animate}
+              transition={slideUp.transition}
+              className="max-w-4xl"
+            >
               <div className="text-neutral-400 text-xs tracking-widest mb-6">GET IN TOUCH</div>
               <h1 className="hero-title mb-8">Let's build the future<br />together</h1>
               <p className="body-large max-w-3xl">
                 Ready to discuss your heavy machinery requirements? Our expert team is here to provide solutions, technical support, and personalized service.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Methods */}
-      <section className="py-24 border-b border-dotted border-neutral-800 bg-neutral-950">
-        <div className="container-padding">
-          <div className="container-max">
-            <div className="text-center mb-16">
-              <h2 className="section-title mb-6">Contact Methods</h2>
-              <p className="body-large max-w-2xl mx-auto">
-                Choose the right contact method for your needs. Our specialists are ready to assist you.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-              {contactInfo.map((contact, index) => (
-                <div key={index} className="p-8 rounded-2xl border border-neutral-800 bg-black/60 space-y-4">
-                  <div className="text-xl font-semibold text-white mb-2">{contact.title}</div>
-                  <div className="space-y-2">
-                    <div className="text-neutral-400 text-sm">{contact.email}</div>
-                    <div className="text-neutral-400 text-sm font-mono">{contact.phone}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -103,7 +79,13 @@ const Contact = () => {
           <div className="container-max">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
               {/* Contact Form */}
-              <div className="p-10 rounded-2xl border border-neutral-800 bg-neutral-950">
+              <motion.div
+                initial={slideLeft.initial}
+                whileInView={slideLeft.animate}
+                viewport={viewportOptions}
+                transition={slideLeft.transition}
+                className="p-10 rounded-2xl border border-neutral-800 bg-neutral-950 mx-auto"
+              >
                 <h2 className="section-title mb-8">Send Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -176,16 +158,29 @@ const Contact = () => {
                       placeholder="How can we help you?"
                     />
                   </div>
-                  <button type="submit" className="btn-primary w-full mt-4">Send Message</button>
+                  <motion.button 
+                    type="submit" 
+                    className="btn-primary w-full mt-4"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Send Message
+                  </motion.button>
                 </form>
-              </div>
-              {/* Info */}
-              <div className="space-y-12">
+              </motion.div>
+              {/* Info Box */}
+              <motion.div
+                initial={slideRight.initial}
+                whileInView={slideRight.animate}
+                viewport={viewportOptions}
+                transition={slideRight.transition}
+                className="space-y-12"
+              >
                 <div className="p-8 rounded-2xl border border-neutral-800 bg-neutral-950">
                   <div className="text-lg font-semibold text-white mb-2">Head Office</div>
                   <div className="text-neutral-400 text-sm">Damascus, Syria</div>
                   <div className="text-neutral-400 text-sm">info@eblondynamics.com</div>
-                  <div className="text-neutral-400 text-sm">+963 12 345 6789</div>
+                  <div className="text-neutral-400 text-sm">+963 933 545 630</div>
                 </div>
                 <div className="p-8 rounded-2xl border border-neutral-800 bg-neutral-950">
                   <div className="text-lg font-semibold text-white mb-2">Working Hours</div>
@@ -193,7 +188,42 @@ const Contact = () => {
                   <div className="text-neutral-400 text-sm">Sat: 10:00am - 2:00pm</div>
                   <div className="text-neutral-400 text-sm">Sun: Closed</div>
                 </div>
-              </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Methods */}
+      <section className="py-24 border-b border-dotted border-neutral-800 bg-neutral-950">
+        <div className="container-padding">
+          <div className="container-max">
+            <motion.div
+              initial={slideUp.initial}
+              whileInView={slideUp.animate}
+              viewport={viewportOptions}
+              transition={slideUp.transition}
+              className="text-center mb-16"
+            >
+              <h2 className="section-title mb-6">Contact Methods</h2>
+              <p className="body-large max-w-2xl mx-auto">
+                Choose the right contact method for your needs. Our specialists are ready to assist you.
+              </p>
+            </motion.div>
+            <div className="flex justify-center">
+              <motion.div
+                initial={scaleIn.initial}
+                whileInView={scaleIn.animate}
+                viewport={viewportOptions}
+                transition={{ ...scaleIn.transition, delay: 0.1 }}
+                className="p-8 rounded-2xl border border-neutral-800 bg-black/60 space-y-4 hover:border-purple-500/30 transition-all duration-300 max-w-md w-full"
+              >
+                <div className="text-xl font-semibold text-white mb-2">General Inquiries</div>
+                <div className="space-y-2">
+                  <div className="text-neutral-400 text-sm">info@eblondynamics.com</div>
+                  <div className="text-neutral-400 text-sm font-mono">+963 933 545 630</div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>

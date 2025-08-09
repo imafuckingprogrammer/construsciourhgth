@@ -1,60 +1,65 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Calendar, Clock } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import { useState } from 'react'
+import Modal from '../components/Modal'
+import { slideUp, slideLeft, slideRight, scaleIn, viewportOptions } from '../utils/animations'
 
 const News = () => {
+  const [selectedArticle, setSelectedArticle] = useState<string | null>(null)
+  const [showComingSoon, setShowComingSoon] = useState(false)
   const newsArticles = [
     {
       id: 'NEWS_001',
-      title: "Eblon Dynamics Expands Manufacturing Capacity",
-      excerpt: "New production facility increases output by 40% to meet growing international demand for precision heavy machinery components.",
-      date: "2024-03-15",
+      title: "Eblon Dynamics Expands Regional Distribution Capacity",
+      excerpt: "To meet growing demand across the Middle East and North Africa, Eblon Dynamics has expanded its warehousing and logistics capabilities—ensuring faster delivery, broader inventory access, and more efficient client support.",
+      date: "2024-03-14",
       readTime: "3 min read",
       category: "Company News",
-      image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop"
+      image: "/pexels-szafran-33014117.jpg"
     },
     {
       id: 'NEWS_002',
       title: "ISO 14001 Environmental Certification Achieved",
-      excerpt: "Eblon Dynamics receives environmental management certification, reinforcing commitment to sustainable manufacturing practices.",
-      date: "2024-02-28",
+      excerpt: "Eblon Dynamics is proud to announce ISO 14001 certification through our partners—solidifying our commitment to environmentally responsible sourcing and logistics.",
+      date: "2024-02-27",
       readTime: "2 min read",
       category: "Sustainability",
-      image: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&h=400&fit=crop"
+      image: "/pexels-pok-rie-33563-1188532.jpg"
     },
     {
       id: 'NEWS_003',
-      title: "Partnership with European Construction Giants",
-      excerpt: "Strategic partnerships established with major European construction companies to supply critical infrastructure projects.",
-      date: "2024-02-10",
+      title: "Strategic Partnerships with European Construction Leaders",
+      excerpt: "We've partnered with major European construction companies to supply OEM parts for critical infrastructure and development projects.",
+      date: "2024-02-09",
       readTime: "4 min read",
       category: "Partnerships",
-      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop"
+      image: "/pexels-digitalbuggu-368685.jpg"
     },
     {
       id: 'NEWS_004',
-      title: "Innovation Award for Smart Manufacturing",
-      excerpt: "Industry recognition for implementing IoT and AI technologies in heavy machinery component manufacturing processes.",
-      date: "2024-01-20",
+      title: "Recognized for Smart Distribution & Inventory Intelligence",
+      excerpt: "Eblon Dynamics received recognition for integrating smart inventory systems and supplier tracking technologies that reduce lead times and increase sourcing efficiency.",
+      date: "2024-01-19",
       readTime: "3 min read",
       category: "Innovation",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&h=400&fit=crop"
+      image: "/pexels-acecranesindia-29543009.jpg"
     }
   ]
 
   const pressReleases = [
     {
       title: "Q4 2023 Financial Results",
-      date: "2024-01-15",
+      date: "2024-01-14",
       type: "Financial Report"
     },
     {
-      title: "New Product Line Launch",
-      date: "2023-12-05",
+      title: "New Product Line Distribution Launch",
+      date: "2023-12-04",
       type: "Product Announcement"
     },
     {
-      title: "Sustainability Initiative Update",
-      date: "2023-11-20",
+      title: "Sustainability Strategy Progress",
+      date: "2023-11-19",
       type: "Environmental Report"
     }
   ]
@@ -66,24 +71,20 @@ const News = () => {
         <div className="container-padding">
           <div className="container-max">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={slideUp.initial}
+              animate={slideUp.animate}
+              transition={slideUp.transition}
               className="max-w-4xl"
             >
               <div className="label-text mb-8">NEWS & UPDATES</div>
               <h1 className="hero-title mb-12">
-                Latest insights from
+                Latest Insights from
                 <br />
-                the industry leaders
+                Industry Leaders
               </h1>
               <p className="body-large max-w-3xl mb-8">
-                Stay informed about our latest developments, industry partnerships, innovation breakthroughs, and company milestones that shape the future of heavy machinery manufacturing.
+                Stay informed on Eblon Dynamics' latest developments, global partnerships, product announcements, and strategic milestones as we continue to raise the standard in heavy machinery parts distribution.
               </p>
-              <button className="btn-primary">
-                Subscribe to Updates
-                <ArrowRight className="ml-2" size={16} />
-              </button>
             </motion.div>
           </div>
         </div>
@@ -94,9 +95,10 @@ const News = () => {
         <div className="container-padding">
           <div className="container-max">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial={slideUp.initial}
+              whileInView={slideUp.animate}
+              viewport={viewportOptions}
+              transition={slideUp.transition}
               className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
             >
               <div className="space-y-6">
@@ -106,17 +108,14 @@ const News = () => {
                 </h2>
                 <p className="body-text">{newsArticles[0].excerpt}</p>
                 <div className="flex items-center space-x-4 text-sm text-neutral-400">
-                  <div className="flex items-center space-x-2">
-                    <Calendar size={14} />
-                    <span>{new Date(newsArticles[0].date).toLocaleDateString()}</span>
-                  </div>
+                  <span>{new Date(newsArticles[0].date).toLocaleDateString()}</span>
                   <div className="w-1 h-1 bg-neutral-500 rounded-full"></div>
-                  <div className="flex items-center space-x-2">
-                    <Clock size={14} />
-                    <span>{newsArticles[0].readTime}</span>
-                  </div>
+                  <span>{newsArticles[0].readTime}</span>
                 </div>
-                <button className="btn-secondary group">
+                <button 
+                  className="btn-secondary group"
+                  onClick={() => setSelectedArticle(newsArticles[0].id)}
+                >
                   Read Full Article
                   <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -139,9 +138,10 @@ const News = () => {
         <div className="container-padding">
           <div className="container-max">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial={slideUp.initial}
+              whileInView={slideUp.animate}
+              viewport={viewportOptions}
+              transition={slideUp.transition}
               className="text-center mb-16"
             >
               <div className="label-text mb-4">RECENT NEWS</div>
@@ -155,11 +155,12 @@ const News = () => {
               {newsArticles.slice(1).map((article, index) => (
                 <motion.div
                   key={article.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  initial={scaleIn.initial}
+                  whileInView={scaleIn.animate}
+                  viewport={viewportOptions}
+                  transition={{ ...scaleIn.transition, delay: index * 0.1 }}
                   className="glass-card overflow-hidden card-hover group cursor-pointer"
+                  onClick={() => setSelectedArticle(article.id)}
                 >
                   <div className="w-full h-48 bg-gradient-to-br from-neutral-800 to-neutral-900 overflow-hidden">
                     <img 
@@ -184,15 +185,9 @@ const News = () => {
                     
                     <div className="flex items-center justify-between pt-4 border-t border-neutral-800">
                       <div className="flex items-center space-x-3 text-xs text-neutral-400">
-                        <div className="flex items-center space-x-1">
-                          <Calendar size={12} />
-                          <span>{new Date(article.date).toLocaleDateString()}</span>
-                        </div>
+                        <span>{new Date(article.date).toLocaleDateString()}</span>
                         <div className="w-1 h-1 bg-neutral-500 rounded-full"></div>
-                        <div className="flex items-center space-x-1">
-                          <Clock size={12} />
-                          <span>{article.readTime}</span>
-                        </div>
+                        <span>{article.readTime}</span>
                       </div>
                       
                       <ArrowRight size={16} className="text-neutral-400 group-hover:text-white group-hover:translate-x-1 transition-all" />
@@ -211,30 +206,38 @@ const News = () => {
           <div className="container-max">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                initial={slideLeft.initial}
+                whileInView={slideLeft.animate}
+                viewport={viewportOptions}
+                transition={slideLeft.transition}
                 className="space-y-8"
               >
                 <div className="label-text">PRESS RELEASES</div>
                 <h2 className="section-title">
-                  Official company
+                  Official Announcements
                   <br />
-                  announcements
+                  & Reports
                 </h2>
                 <p className="body-text">
-                  Access our official press releases, financial reports, and corporate announcements for media and investor relations.
+                  Access our official company statements, financial updates, and product news for press and investor use.
                 </p>
-                <button className="btn-secondary">
-                  View All Releases
-                  <ArrowRight className="ml-2" size={16} />
+                <button className="btn-secondary mt-6" onClick={() => setShowComingSoon(true)}>
+                  Announcements Coming Soon
                 </button>
+                <Modal isOpen={showComingSoon} onClose={() => setShowComingSoon(false)} title="Coming Soon">
+                  <div className="space-y-6">
+                    <div className="text-neutral-300 leading-relaxed">
+                      Announcements and press releases will be available soon. Stay tuned!
+                    </div>
+                  </div>
+                </Modal>
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                initial={slideRight.initial}
+                whileInView={slideRight.animate}
+                viewport={viewportOptions}
+                transition={slideRight.transition}
                 className="space-y-6"
               >
                 {pressReleases.map((release, index) => (
@@ -260,37 +263,25 @@ const News = () => {
         </div>
       </section>
 
-      {/* Newsletter CTA */}
-      <section className="page-section bg-black">
-        <div className="container-padding">
-          <div className="container-max">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center max-w-3xl mx-auto space-y-8"
-            >
-              <h2 className="section-title">
-                Stay informed about
-                <br />
-                industry developments
-              </h2>
-              <p className="body-large">
-                Subscribe to our newsletter for the latest company updates, industry insights, and innovation breakthroughs delivered to your inbox.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="btn-primary">
-                  Subscribe Now
-                  <ArrowRight className="ml-2" size={16} />
-                </button>
-                <button className="btn-secondary">
-                  Media Kit
-                </button>
-              </div>
-            </motion.div>
+      {/* Article Modal */}
+      <Modal 
+        isOpen={selectedArticle !== null} 
+        onClose={() => setSelectedArticle(null)}
+        title={newsArticles.find(article => article.id === selectedArticle)?.title || ''}
+      >
+        <div className="space-y-6">
+          <div className="flex items-center space-x-4 text-sm text-neutral-400">
+            <span>{newsArticles.find(article => article.id === selectedArticle)?.date}</span>
+            <div className="w-1 h-1 bg-neutral-500 rounded-full"></div>
+            <span>{newsArticles.find(article => article.id === selectedArticle)?.readTime}</span>
+          </div>
+          <div className="prose prose-invert max-w-none">
+            <p className="text-neutral-300 leading-relaxed">
+              Coming soon...
+            </p>
           </div>
         </div>
-      </section>
+      </Modal>
     </div>
   )
 }
