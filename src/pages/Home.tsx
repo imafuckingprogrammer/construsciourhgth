@@ -120,6 +120,85 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Brands & Partnerships Section */}
+      <section className="section-small bg-neutral-950">
+        <div className="container-padding">
+          <div className="container-max">
+            <motion.div
+              initial={slideUp.initial}
+              whileInView={slideUp.animate}
+              viewport={viewportOptions}
+              transition={slideUp.transition}
+              className="text-center mb-12"
+            >
+              <div className="label-text mb-4">OUR BRANDS & PARTNERSHIPS</div>
+              <h2 className="section-title mb-6">We are proud to be:</h2>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              {[
+                {
+                  name: 'Komatsu',
+                  description: 'Leading supplier of Komatsu in the regions',
+                  image: '/Komatsu_company_logos.svg.png',
+                  isWhite: false
+                },
+                {
+                  name: 'Caterpillar',
+                  description: 'Leading supplier of Caterpillar in the regions',
+                  image: '/cater.png',
+                  isWhite: true
+                },
+                {
+                  name: 'Maxiforce',
+                  description: 'Official distributor for maxiForce in Syria and Lebanon',
+                  image: '/maxi.png',
+                  isWhite: false
+                },
+                {
+                  name: 'Blumaq',
+                  description: 'Official distributor for Blumaq in Syria',
+                  image: '/logo-blumaq-min.png',
+                  isWhite: true
+                },
+                {
+                  name: 'Perkins',
+                  description: 'Supplier of Perkins OEM in the regions',
+                  image: '/perkins[new]perkin.png',
+                  isWhite: false
+                },
+                {
+                  name: 'Cummins',
+                  description: 'Best supplier of Cummins OEM in the regions',
+                  image: '/cummins{new}.png',
+                  isWhite: true
+                },
+                {
+                  name: 'John Deere',
+                  description: 'Supplier of John Deere OEM in the region',
+                  image: '/JOHN DEERE MAIN.png',
+                  isWhite: false
+                }
+              ].map((brand, index) => {
+                return (
+                  <motion.div
+                    key={index}
+                    initial={scaleIn.initial}
+                    whileInView={scaleIn.animate}
+                    viewport={viewportOptions}
+                    transition={{ ...scaleIn.transition, delay: index * 0.1 }}
+                    className={`glass-card p-8 flex flex-col items-center text-center card-hover ${brand.isWhite ? 'bg-white/60 backdrop-blur-md' : ''}`}
+                  >
+                    <img src={brand.image} alt={brand.name} className="h-16 mb-4 object-contain" />
+                    <div className={`text-xl font-semibold mb-2 ${brand.isWhite ? 'text-black' : 'text-white'}`}>{brand.name}</div>
+                    <div className={`body-text mb-2 ${brand.isWhite ? 'text-black' : 'text-neutral-300'}`}>{brand.description}</div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Solutions Grid */}
       <section className="page-section bg-neutral-950">
         <div className="container-padding">
@@ -205,85 +284,6 @@ const Home = () => {
                   />
                 </div>
               </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Brands & Partnerships Section */}
-      <section className="section-small bg-neutral-950">
-        <div className="container-padding">
-          <div className="container-max">
-            <motion.div
-              initial={slideUp.initial}
-              whileInView={slideUp.animate}
-              viewport={viewportOptions}
-              transition={slideUp.transition}
-              className="text-center mb-12"
-            >
-              <div className="label-text mb-4">OUR BRANDS & PARTNERSHIPS</div>
-              <h2 className="section-title mb-6">We are proud to be:</h2>
-            </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              {[
-                {
-                  name: 'Komatsu',
-                  description: 'Leading Lebanese/Syrian supplier of Komatsu in the regions',
-                  image: '/Komatsu_company_logos.svg.png',
-                  isWhite: false
-                },
-                {
-                  name: 'Caterpillar',
-                  description: 'Leading Lebanese/Syrian supplier of Caterpillar in the regions',
-                  image: '/cater.png',
-                  isWhite: true
-                },
-                {
-                  name: 'Maxiforce',
-                  description: 'Official distributor for MaxiForce in Syria and Lebanon',
-                  image: '/maxi.png',
-                  isWhite: false
-                },
-                {
-                  name: 'Blumaq',
-                  description: 'Official distributor for Blumaq in Syria and Lebanon',
-                  image: '/logo-blumaq-min.png',
-                  isWhite: true
-                },
-                {
-                  name: 'Perkins',
-                  description: 'Supplier of Perkins OEM in the regions',
-                  image: '/perkins[new]perkin.png',
-                  isWhite: false
-                },
-                {
-                  name: 'Cummins',
-                  description: 'Best supplier of Cummins OEM in the regions',
-                  image: '/cummins{new}.png',
-                  isWhite: true
-                },
-                {
-                  name: 'John Deere',
-                  description: 'Supplier of John Deere OEM in the region',
-                  image: '/JOHN DEERE MAIN.png',
-                  isWhite: false
-                }
-              ].map((brand, index) => {
-                return (
-                  <motion.div
-                    key={index}
-                    initial={scaleIn.initial}
-                    whileInView={scaleIn.animate}
-                    viewport={viewportOptions}
-                    transition={{ ...scaleIn.transition, delay: index * 0.1 }}
-                    className={`glass-card p-8 flex flex-col items-center text-center card-hover ${brand.isWhite ? 'bg-white/60 backdrop-blur-md' : ''}`}
-                  >
-                    <img src={brand.image} alt={brand.name} className="h-16 mb-4 object-contain" />
-                    <div className={`text-xl font-semibold mb-2 ${brand.isWhite ? 'text-black' : 'text-white'}`}>{brand.name}</div>
-                    <div className={`body-text mb-2 ${brand.isWhite ? 'text-black' : 'text-neutral-300'}`}>{brand.description}</div>
-                  </motion.div>
-                );
-              })}
             </div>
           </div>
         </div>

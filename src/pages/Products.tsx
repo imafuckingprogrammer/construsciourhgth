@@ -56,25 +56,25 @@ const Products = () => {
   const brands = [
     {
       name: 'Komatsu',
-      description: 'Leading Lebanese/Syrian supplier of Komatsu in the regions',
+      description: 'Leading supplier of Komatsu in the regions',
       image: '/Komatsu_company_logos.svg.png',
       isWhite: false
     },
     {
       name: 'Caterpillar',
-      description: 'Leading Lebanese/Syrian supplier of Caterpillar in the regions',
+      description: 'Leading supplier of Caterpillar in the regions',
       image: '/cater.png',
       isWhite: true
     },
     {
       name: 'Maxiforce',
-      description: 'Official distributor for MaxiForce in Syria and Lebanon',
+      description: 'Official distributor for maxiForce in Syria and Lebanon',
       image: '/maxi.png',
       isWhite: false
     },
     {
       name: 'Blumaq',
-      description: 'Official distributor for Blumaq in Syria and Lebanon',
+      description: 'Official distributor for Blumaq in Syria',
       image: '/logo-blumaq-min.png',
       isWhite: true
     },
